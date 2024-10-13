@@ -1,0 +1,24 @@
+# Instrucciones para el Proyecto toDolist
+
+Este proyecto utiliza Node.js con Express para crear una API REST y React.js junto con Bootstrap para el frontend.
+
+## Configuración del Proyecto
+
+1. **Iniciar la API:**
+   - Navega a la carpeta del proyecto:
+     cd 2_ConocimientoNode-React
+   - Instala las dependencias:
+     npm install
+   - Inicia la API:
+     npm run dev
+
+2. **Iniciar el Frontend:**
+   - Abre una nueva terminal y navega nuevamente a la carpeta del proyecto:
+     cd 2_ConocimientoNode-React
+     cd toDoList-react
+   - Instala las dependencias del frontend:
+     npm install
+   - Inicia el servidor del frontend:
+     npm run dev
+
+Con esto, el proyecto debería estar listo para comenzar. Copia la ruta que aparece en la terminal del frontend y pégala en tu navegador preferido.
