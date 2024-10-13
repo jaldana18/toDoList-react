@@ -14,19 +14,24 @@ export default function TaskList({ tasks, setTasks, setListUpdated, task, setTas
     };
 
     const handleUpdate = (id, completed) => {
-        const requestInit = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ completed }) // Solo enviamos el estado 'completed'
-        };
-        fetch(`http://localhost:8000/api/tareas/${id}`, requestInit)
-        .then(res => res.json())
-        .then(res => console.log(res))
-        setListUpdated(true);
+        const newTitle = prompt("Ingresa el nuevo titulo", task.title);
+        if (newTitle) {
+            const requestInit = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: newTitle, completed }) 
+            };
+            fetch(`http://localhost:8000/api/tareas/${id}`, requestInit)
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    setListUpdated(true);
+                });
+        }
     };
 
     const handleCheckboxChange = (id, completed) => {
-        handleUpdate(id, !completed); // Invertir el estado de completed
+        handleUpdate(id, !completed); 
     };
 
     return (
@@ -53,7 +58,7 @@ export default function TaskList({ tasks, setTasks, setListUpdated, task, setTas
                         </td>
                         <td>
                             <button style={{ marginRight: 10 }} className='btn btn-danger' onClick={() => handleDelete(task.id)}>Delete</button>
-                            {/* No actualizamos el título en el botón de actualizar */}
+                            
                             <button className='btn btn-dark' onClick={() => handleUpdate(task.id, task.completed)}>Update</button>
                         </td>
                     </tr>
